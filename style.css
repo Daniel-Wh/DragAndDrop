@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Lato:300,500,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
 
 :root {
   --border-color: #e3e5e4;
@@ -55,12 +55,15 @@ body {
 .draggable-list .person-name {
   margin: 0 20px 0 0;
 }
+
 .draggable-list li.right .person-name {
   color: #3ae374;
 }
+
 .draggable-list li.wrong .person-name {
   color: #ff3838;
 }
+
 .draggable {
   cursor: pointer;
   display: flex;
