@@ -23,17 +23,22 @@ createList();
 
 // insert list Items into dom
 function createList() {
-  [...richestPeople].forEach((person, index) => {
-    const listItem = document.createElement("li");
+  [...richestPeople]
+    .map((a) => ({ value: a, sort: Math.random() })) // create object with person and random sort value
+    .sort((a, b) => a.sort - b.sort) // now sort new array of objects based on sort value
+    .map((a) => a.value) // then return just the values without the sort value
+    .forEach((person, index) => {
+      // finally add to dom
+      const listItem = document.createElement("li");
 
-    listItem.setAttribute("data-index", index);
-    listItem.innerHTML = `
+      listItem.setAttribute("data-index", index);
+      listItem.innerHTML = `
         <span class="number">${index + 1}</span>
         <div class="draggable" draggable="true">
         <p class="person-name">${person}</p>
         <i class="fas fa-grip-lines"></i>
         </div>`;
-    listItems.push(listItem);
-    draggable_list.appendChild(listItem);
-  });
+      listItems.push(listItem);
+      draggable_list.appendChild(listItem);
+    });
 }
